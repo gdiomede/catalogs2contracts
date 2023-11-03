@@ -137,28 +137,28 @@
 				<version>4.19.0</version>
 				<executions>
 					<execution>
+						<id>cw</id>
 						<goals>
-							<id>cw</id>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
 							<inputSpec>${project.basedir}/api-yaml/cw.yaml</inputSpec>
 							<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
-							<deleteOutputDirectory>true</deleteOutputDirectory>
+							<deleteOutputDirectory>false</deleteOutputDirectory>
 							<apiPackage>com.sap.openapi.cw.api</apiPackage>
 							<modelPackage>com.sap.openapi.cw.model</modelPackage>
 							<apiMaturity>released</apiMaturity>
 						</configuration>						
 					</execution>
 					<execution>
+						<id>ct</id>
 						<goals>
-							<id>ct</id>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
 							<inputSpec>${project.basedir}/api-yaml/ct.yaml</inputSpec>
 							<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
-							<deleteOutputDirectory>true</deleteOutputDirectory>
+							<deleteOutputDirectory>false</deleteOutputDirectory>
 							<apiPackage>com.sap.openapi.ct.api</apiPackage>
 							<modelPackage>com.sap.openapi.ct.model</modelPackage>
 							<apiMaturity>released</apiMaturity>
@@ -166,7 +166,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>

@@ -1,13 +1,13 @@
 _schema-version: '3.1'
-ID: ContractsToCatalogs
+ID: CatalogsToContracts
 version: 1.0.0-SNAPSHOT
 description: "A simple CAP project."
 parameters:
   enable-parallel-deployments: true
 modules:
-  - name: ContractsToCatalogs-srv
+  - name: CatalogsToContracts-srv
     type: java
-    path: gen/srv
+    path: srv
     parameters:
       buildpack: sap_java_buildpack
     properties:
@@ -29,14 +29,14 @@ modules:
         properties:
           CDS_MULTITENANCY_MTXS_ENABLED: true
           CDS_MULTITENANCY_SIDECAR_URL: ~{mtx-url}
-      - name: ContractsToCatalogs-registry
-      - name: ContractsToCatalogs-auth
-      - name: ContractsToCatalogs-db
+      - name: CatalogsToContracts-registry
+      - name: CatalogsToContracts-auth
+      - name: CatalogsToContracts-db
       - name: app-api
         properties:
           CDS_MULTITENANCY_APPUI_URL: ~{url}
 
-  - name: ContractsToCatalogs-mtx
+  - name: CatalogsToContracts-mtx
     type: nodejs
     path: mtx/sidecar
     build-parameters:
@@ -45,7 +45,7 @@ modules:
       commands:
         - npm run build
       requires:
-        - name: ContractsToCatalogs-srv
+        - name: CatalogsToContracts-srv
     parameters:
       memory: 256M
       disk-quota: 512M
@@ -54,10 +54,10 @@ modules:
         properties:
           mtx-url: ${default-url}
     requires:
-      - name: ContractsToCatalogs-auth
-      - name: ContractsToCatalogs-db
+      - name: CatalogsToContracts-auth
+      - name: CatalogsToContracts-db
 
-  - name: ContractsToCatalogs
+  - name: CatalogsToContracts
     type: approuter.nodejs
     path: app/
     parameters:
@@ -78,14 +78,14 @@ modules:
         properties:
           name: mtx-api # must be used in xs-app.json as well
           url: ~{mtx-url}
-      - name: ContractsToCatalogs-auth
+      - name: CatalogsToContracts-auth
     provides:
       - name: app-api
         properties:
           url: ${default-url}
 
 resources:
-  - name: ContractsToCatalogs-registry
+  - name: CatalogsToContracts-registry
     type: org.cloudfoundry.managed-service
     requires:
       - name: srv-api
@@ -93,9 +93,9 @@ resources:
       service: saas-registry
       service-plan: application
       config:
-        xsappname: ContractsToCatalogs-${org}-${space}
-        appName: ContractsToCatalogs-${org}-${space}
-        displayName: ContractsToCatalogs
+        xsappname: CatalogsToContracts-${org}-${space}
+        appName: CatalogsToContracts-${org}-${space}
+        displayName: CatalogsToContracts
         description: A simple CAP project.
         category: 'Category'
         appUrls:
@@ -105,16 +105,16 @@ resources:
           onUnSubscriptionAsync: true
           onUpdateDependenciesAsync: true
           callbackTimeoutMillis: 300000 # Increase if your deployments are taking longer than that
-  - name: ContractsToCatalogs-auth
+  - name: CatalogsToContracts-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: ContractsToCatalogs-${org}-${space}
+        xsappname: CatalogsToContracts-${org}-${space}
         tenant-mode: shared
-  - name: ContractsToCatalogs-db
+  - name: CatalogsToContracts-db
     type: org.cloudfoundry.managed-service
     parameters:
       service: service-manager

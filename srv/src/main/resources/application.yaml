@@ -1,0 +1,14 @@
+---
+spring:
+  config.activate.on-profile: default
+  sql.init.schema-locations: classpath:schema-h2.sql
+cds:
+  datasource.auto-config.enabled: false
+  sql.supportedLocales: "*"
+---
+spring:
+  config.activate.on-profile: true
+cds:
+  multi-tenancy:
+    mtxs.enabled: true
+    sidecar.url: http://localhost:4005/ # in production mode overwrite with the URL from mta.yaml

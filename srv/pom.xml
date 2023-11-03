@@ -55,6 +55,14 @@
 			<artifactId>cds-feature-mt</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- Data Model OpenAPI Services Core -->
+		<dependency>
+			<groupId>com.sap.cloud.sdk.datamodel</groupId>
+			<artifactId>openapi-core</artifactId>
+			<version>4.26.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

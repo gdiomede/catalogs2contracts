@@ -128,6 +128,45 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- CLASSES GENERATOR FOR APIs MODEL-->
+			<plugin>
+				<groupId>com.sap.cloud.sdk.datamodel</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<!-- Please use always the latest version. You can find it on this page.-->
+				<version>4.19.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<id>cw</id>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/api-yaml/cw.yaml</inputSpec>
+							<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+							<deleteOutputDirectory>true</deleteOutputDirectory>
+							<apiPackage>com.sap.openapi.cw.api</apiPackage>
+							<modelPackage>com.sap.openapi.cw.model</modelPackage>
+							<apiMaturity>released</apiMaturity>
+						</configuration>						
+					</execution>
+					<execution>
+						<goals>
+							<id>ct</id>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/api-yaml/ct.yaml</inputSpec>
+							<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+							<deleteOutputDirectory>true</deleteOutputDirectory>
+							<apiPackage>com.sap.openapi.ct.api</apiPackage>
+							<modelPackage>com.sap.openapi.ct.model</modelPackage>
+							<apiMaturity>released</apiMaturity>
+						</configuration>						
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>

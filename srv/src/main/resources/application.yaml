@@ -5,6 +5,13 @@ spring:
 cds:
   datasource.auto-config.enabled: false
   sql.supportedLocales: "*"
+logging:
+  file: logs/default_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    root: DEBUG
 ---
 spring:
   config.activate.on-profile: true
@@ -12,3 +19,10 @@ cds:
   multi-tenancy:
     mtxs.enabled: true
     sidecar.url: http://localhost:4005/ # in production mode overwrite with the URL from mta.yaml
+logging:
+  file: logs/app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    root: DEBUG

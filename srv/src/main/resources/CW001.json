@@ -1,0 +1,112 @@
+{
+            "title": "GD IMPORT CW TEST",
+            "description": "",
+            "commodities": [],
+            "regions": [],
+            "departments": [],
+            "owner": {
+                "uniqueName": "I078573",
+                "passwordAdapter": "PasswordAdapter1",
+                "name": "Sigismondo Passaro",
+                "emailAddress": "sigisbondx@gmail.com",
+                "organization": "EMEA POC",
+                "orgName": "EMEA POC",
+                "timeZoneID": "Europe/Rome",
+                "localeID": "en",
+                "active": true,
+                "isSupportAdmin": false,
+                "orgANId": "AN01427755797-T"
+            },
+            "contractId": "CW2105gd",
+            "supplier": {
+                "name": "IBM",
+                "systemID": "ACM_13867383",
+                "smVendorID": "S51598293",
+                "isBlocked": false,
+                "organizationIDs": [
+                    {
+                        "domain": "buyersystemid",
+                        "value": "acm_13867383"
+                    },
+                    {
+                        "domain": "networkid",
+                        "value": "an11145302850-t"
+                    }
+                ],
+                "address": {
+                    "name": "",
+                    "uniqueName": "AD5681043",
+                    "phone": "",
+                    "fax": "",
+                    "lines": [
+                        "via del corso"
+                    ],
+                    "city": "ROMA",
+                    "state": "IT-AG",
+                    "postalCode": "12345",
+                    "country": "IT"
+                }
+            },
+            "effectiveDate": "2022-10-27T00:00:00.000+0000",
+            "expirationDate": "2032-10-31T00:00:00.000+0000",
+            "contractAmount": {
+                "amount": 1000.0000000000,
+                "currency": "EUR"
+            },
+            "templateId": "CW2087",
+            "hierarchicalType": "StandAlone",
+            "expirationTermType": "AutoRenew",
+            "relatedId": "",
+            "questions": [
+                {
+                    "questionText": "Will buyer paper or supplier paper be used for this contract?",
+                    "questionId": "QI2147300",
+                    "answerText": "Buyer Paper",
+                    "answerOptions": null
+                },
+                {
+                    "questionText": "What termination clause is required for this contract?",
+                    "questionId": "QI2147301",
+                    "answerText": "Termination by buyer with 14 days notice",
+                    "answerOptions": null
+                }
+            ],
+            "affectedParties": [
+                {
+                    "name": "IBM",
+                    "systemID": "ACM_13867383",
+                    "smVendorID": "S51598293",
+                    "isBlocked": false,
+                    "organizationIDs": [
+                        {
+                            "domain": "buyersystemid",
+                            "value": "acm_13867383"
+                        },
+                        {
+                            "domain": "networkid",
+                            "value": "an11145302850-t"
+                        }
+                    ],
+                    "address": {
+                        "name": "",
+                        "uniqueName": "AD5681043",
+                        "phone": "",
+                        "fax": "",
+                        "lines": [
+                            "via del corso"
+                        ],
+                        "city": "ROMA",
+                        "state": "IT-AG",
+                        "postalCode": "12345",
+                        "country": "IT"
+                    }
+                }
+            ],
+            "maximumNumberOfRenewals": 100,
+            "autoRenewalInterval": 3,
+            "isTestProject": false,
+            "lastModified": "2023-03-11T10:50:32.814+0000",
+            "active": true,
+            "customFields": [
+            ]
+}

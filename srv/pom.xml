@@ -63,6 +63,13 @@
 			<version>4.26.0</version>
 		</dependency>
 
+		<!-- Gson library for deserializazion or serializazion objects  -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

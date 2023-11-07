@@ -16,7 +16,7 @@ public class Application  implements CommandLineRunner {
     { 
         // Print statement when method is called 
         ContractWorkspace cw = ContractWorkspacesUtil.readContractWorkspaceJson("CW001.json");
-        HttpDestination destination = ContractWorkspacesUtil.getDestination("CW");
+        HttpDestination destination = ContractWorkspacesUtil.getDestination("CW-API");
         ContractWorkspacesUtil.createContractWorkspace(destination, "I078573", "PasswordAdapter1", "ITESPOC-T", cw);
 
     } 

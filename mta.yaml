@@ -32,6 +32,7 @@ modules:
       - name: CatalogsToContracts-registry
       - name: CatalogsToContracts-auth
       - name: CatalogsToContracts-db
+      - name: C2C-destination-service
       - name: app-api
         properties:
           CDS_MULTITENANCY_APPUI_URL: ~{url}
@@ -119,3 +120,27 @@ resources:
     parameters:
       service: service-manager
       service-plan: container
+  # ------------------------------------------------------------
+  - name: C2C-destination-service
+  # ------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    requires:
+      - name: srv-api
+    parameters:
+      service: destination
+      service-plan: lite
+      config:
+        init_data:
+          subaccount:
+            existing_destinations_policy: update
+            destinations:
+              - Name: CW-API
+                clientId: dc98dc40-f212-4f0b-9435-4f8c1eb3592b
+                Authentication: OAuth2ClientCredentials
+                tokenServiceURL: https://api.ariba.com/v2/oauth/token?grant_type=client_credentials
+                ProxyType: Internet
+                URL: https://openapi.ariba.com/api/modify-contract-workspaces/v1/prod
+                tokenServiceURLType: Common
+                tokenServiceUser: dc98dc40-f212-4f0b-9435-4f8c1eb3592b
+                HTML5.ForwardAuthToken: true
+                HTML5.DynamicDestination: true

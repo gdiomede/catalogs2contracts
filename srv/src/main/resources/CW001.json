@@ -17,7 +17,7 @@
                 "isSupportAdmin": false,
                 "orgANId": "AN01427755797-T"
             },
-            "contractId": "CW2105gd",
+            "contractId": "CW2105",
             "supplier": {
                 "name": "IBM",
                 "systemID": "ACM_13867383",
@@ -53,7 +53,7 @@
                 "amount": 1000.0000000000,
                 "currency": "EUR"
             },
-            "templateId": "CW2087",
+            "templateId": "CW4170",
             "hierarchicalType": "StandAlone",
             "expirationTermType": "AutoRenew",
             "relatedId": "",

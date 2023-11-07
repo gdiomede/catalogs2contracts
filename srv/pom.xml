@@ -20,6 +20,13 @@
 			<artifactId>cds-starter-spring-boot</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sap.cloud.sdk.cloudplatform</groupId>
+			<artifactId>scp-cf</artifactId>
+			<version>4.26.0</version>
+		</dependency>
+
+
 		<!-- ODATA PROTOCOL ADAPTER -->
 		<dependency>
 			<groupId>com.sap.cds</groupId>

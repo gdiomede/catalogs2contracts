@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.lang.reflect.Type;
 
@@ -35,7 +36,7 @@ public class ContractWorkspacesUtil {
     private static Logger logger = LoggerFactory.getLogger(ContractWorkspacesUtil.class);
 
     public static List<ContractWorkspace> readContractWorkspacesJson(String fileName) {
-        logger.debug("sono in readContractWorkspacesJson");
+        logger.debug("Entering in readContractWorkspacesJson");
         List<ContractWorkspace> data = new ArrayList<ContractWorkspace>();
         File file = getFileFromResources(fileName);
         if (file == null)
@@ -62,6 +63,10 @@ public class ContractWorkspacesUtil {
 
         try (JsonReader reader = new JsonReader(new FileReader(file))) {
             data = gson.fromJson(reader, CONTRACT_WORKSPACE_TYPE);
+            String cwID = data.getContractId();
+            Date d = new Date();
+            data.setContractId(cwID + d.toString());
+            data.setTitle(data.getTitle() + d.toString());
         } catch (JsonIOException | JsonSyntaxException | IOException e) {
             e.printStackTrace();
         }
